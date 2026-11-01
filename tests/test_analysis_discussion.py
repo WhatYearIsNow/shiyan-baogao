@@ -46,7 +46,7 @@ class AnalysisDiscussionTests(unittest.TestCase):
         self.assertIn("正文也不主动提及“往届报告”", self.reference)
 
     def test_discussion_eval_cases_are_registered(self):
-        self.assertEqual(self.evals["revision"], "5")
+        self.assertEqual(self.evals["revision"], "6")
         by_id = {case["id"]: case for case in self.evals["evals"]}
         self.assertTrue({6, 7, 8}.issubset(by_id))
         for case_id in (6, 7, 8):

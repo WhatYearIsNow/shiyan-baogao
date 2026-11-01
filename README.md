@@ -29,6 +29,8 @@
 
 ## 快速试算
 
+用户完成誊抄或自主调整后，可另行提供手写报告、扫描件或照片，要求[独立事实复核](references/handwritten-review.md)。此模式可跨会话启动，回查原始依据，诊断与生成稿的实质差异，允许合理改动并优先报告事实错误；生成阶段不自动要求手写件。
+
 ```text
 python -B scripts/uncertainty.py selftest
 python -B examples/direct_measurement.py

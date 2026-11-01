@@ -47,7 +47,7 @@ class FullReportWorkflowTests(unittest.TestCase):
 
     def test_new_eval_cases_and_package_metadata(self):
         self.assertEqual(self.evals["skill_name"], "shiyan-baogao")
-        self.assertEqual(self.evals["revision"], "5")
+        self.assertEqual(self.evals["revision"], "6")
         self.assertTrue({9, 10, 11, 12}.issubset({case["id"] for case in self.evals["evals"]}))
         openai = (ROOT / "agents/openai.yaml").read_text(encoding="utf-8")
         manifest = json.loads((ROOT / "release-manifest.json").read_text(encoding="utf-8"))

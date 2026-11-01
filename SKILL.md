@@ -1,9 +1,9 @@
 ---
 name: shiyan-baogao
-description: 处理物理、材料与设计制造类实验，从指导书要求、原始数据或观察、课堂材料和参考样例生成可追溯的完整实验报告、数据处理记录及按需 LaTeX/PDF；也用于交前核验。不自动提交，不补造数据、观察或图片。
+description: 处理物理、材料与设计制造类实验，生成可追溯的完整报告、数据处理记录及按需 LaTeX/PDF；也可独立复核用户誊抄和修改后的手写报告，重点检查事实错误与改动影响。不自动提交，不补造数据、观察或图片。
 license: MIT
 metadata:
-  version: "0.2.1"
+  version: "0.2.2"
 ---
 
 # 实验报告
@@ -22,6 +22,8 @@ metadata:
 
 未指定时：用户只给数据并要求处理，则交可复算记录；用户明确要“实验报告”则交完整正文和必要说明。不要因 skill 已扩展就把简单计算强制写成整份报告。
 
+用户提供誊抄后的手写报告、扫描件或照片并要求检查时，进入[誊抄后独立复核](references/handwritten-review.md)。该模式可在新会话单独启动，重建材料与版本联系，优先检查事实和改动影响。生成报告时仍执行产物自身校验，不自动等待手写件或宣称已完成誊抄后复核。
+
 按任务需要读取：
 
 | 工作 | 参考文件 |
@@ -35,6 +37,7 @@ metadata:
 | 数据表、科研图形与数值表达 | [scientific-presentation.md](references/scientific-presentation.md) |
 | 完整的结果讨论、实验结论与思考改进 | [analysis-discussion.md](references/analysis-discussion.md) |
 | 处理记录与交付留痕 | [audit-record.md](references/audit-record.md) |
+| 用户誊抄、修改后的手写件事实复核与差异诊断 | [handwritten-review.md](references/handwritten-review.md) |
 
 ## 1. 清点材料并建立要求矩阵
 
