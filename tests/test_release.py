@@ -174,7 +174,7 @@ class ReleaseTests(unittest.TestCase):
             names = archive.namelist()
         self.assertEqual(names, sorted(names))
         self.assertEqual(len(names), 5)
-        self.assertIn("shiyan-shuju/scripts/public.py", names)
+        self.assertIn("shiyan-baogao/scripts/public.py", names)
         self.assertFalse(any("private" in name or "cache" in name for name in names))
 
     def test_unexpected_file_inside_public_directory_fails(self):
@@ -197,7 +197,7 @@ class ReleaseTests(unittest.TestCase):
                 self.assertEqual(info.create_system, 3)
                 self.assertEqual(info.external_attr >> 16, 0o100644)
                 self.assertEqual(info.compress_type, zipfile.ZIP_STORED)
-                self.assertTrue(info.filename.startswith("shiyan-shuju/"))
+                self.assertTrue(info.filename.startswith("shiyan-baogao/"))
                 self.assertNotIn("\\", info.filename)
 
     def test_failed_build_does_not_overwrite_existing_output(self):

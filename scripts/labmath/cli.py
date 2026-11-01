@@ -40,7 +40,7 @@ def _assignments(text, label):
 @calculation
 def main(argv=None):
     ap = argparse.ArgumentParser(
-        description="大学物理实验数据处理计算内核（agent 自动调用，用户无需手敲）"
+        description="实验报告中的测量数据处理计算内核（agent 自动调用，用户无需手敲）"
     )
     sub = ap.add_subparsers(dest="cmd", required=True)
 

@@ -31,7 +31,7 @@ def verify(root=ROOT, output=None, template=False, package=False, runner=None):
     ]
     if package:
         stages.append(
-            ('package', ['scripts/build_release.py', '--output', 'build/shiyan-shuju.zip'])
+            ('package', ['scripts/build_release.py', '--output', 'build/shiyan-baogao.zip'])
         )
     report = {
         'python': platform.python_version(),
