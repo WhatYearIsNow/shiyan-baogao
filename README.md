@@ -47,7 +47,7 @@ python -B scripts/verify.py --template --package
 python -B scripts/build_release.py --output build/shiyan-baogao.zip
 ```
 
-`--template` 会真实编译并渲染纵向与横向模板；没有 TeX 环境时可省略，但不能声称完成了 PDF 视觉验收。表格和曲线规范见[科研图表与数值表达](references/scientific-presentation.md)，开发边界见[贡献指南](CONTRIBUTING.md)和[维护流程](MAINTENANCE.md)。
+`--template` 会真实编译并渲染统一的横向双框模板；没有 TeX 环境时可省略，但不能声称完成了 PDF 视觉验收。完整报告与仅数据处理报告共用该版式，只由要求矩阵决定正文内容。表格和曲线规范见[科研图表与数值表达](references/scientific-presentation.md)，开发边界见[贡献指南](CONTRIBUTING.md)和[维护流程](MAINTENANCE.md)。
 
 ## 来源与许可证
 

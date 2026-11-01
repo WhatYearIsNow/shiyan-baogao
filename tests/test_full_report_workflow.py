@@ -54,11 +54,10 @@ class FullReportWorkflowTests(unittest.TestCase):
         self.assertIn("$shiyan-baogao", openai)
         self.assertEqual(manifest["name"], "shiyan-baogao")
 
-    def test_both_neutral_templates_have_body_markers(self):
-        for name in ("report-a4.tex", "report-landscape.tex"):
-            template = (ROOT / "assets" / name).read_text(encoding="utf-8")
-            self.assertEqual(template.count("%%% BEGIN BODY %%%"), 1)
-            self.assertEqual(template.count("%%% END BODY %%%"), 1)
+    def test_neutral_template_has_body_markers(self):
+        template = (ROOT / "assets" / "report-landscape.tex").read_text(encoding="utf-8")
+        self.assertEqual(template.count("%%% BEGIN BODY %%%"), 1)
+        self.assertEqual(template.count("%%% END BODY %%%"), 1)
 
 
 if __name__ == "__main__":

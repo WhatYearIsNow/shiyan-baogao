@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile synthetic portrait and landscape fixtures; optionally render every page.
+"""Compile synthetic landscape fixtures; optionally render every page.
 
 Requires XeLaTeX; --render additionally requires pdftoppm. Artifacts stay in
 the requested output directory and are never included in a release archive.
@@ -56,39 +56,10 @@ u_c^2&=\left(\frac{\partial f}{\partial x_1}u_1\right)^2
     }
 
 
-def portrait_fixture_bodies():
-    short = r"""\section{实验目的}
-本段仅检验完整报告的纵向版式，不代表任何实际实验内容。
-\section{结果与分析}
-\begin{center}
-\begin{tabular}{ccc}\toprule
-序号 & 观察或测量 & 结果\\\midrule
-1 & 合成样例 & 已记录\\
-2 & 合成样例 & 已复核\\\bottomrule
-\end{tabular}
-\end{center}
-\begin{equation*}y=(1.234\pm0.012)\,\mathrm{unit}.
-\end{equation*}
-"""
-    sections = []
-    for i in range(14):
-        sections.append(r'\section{合成章节 ' + str(i + 1) + '}' + '\n')
-        sections.append(
-            (
-                '本段仅作完整报告分页测试。每项结论应绑定本次测量或观察，'
-                '指导书要求、课堂补充和样例结构应分开追溯。\n\n'
-            )
-            * 4
-        )
-    return {'portrait-short': short, 'portrait-multipage': ''.join(sections)}
-
-
 def template_cases():
     cases = []
     for name, body in landscape_fixture_bodies().items():
         cases.append((name, ROOT / 'assets/report-landscape.tex', body))
-    for name, body in portrait_fixture_bodies().items():
-        cases.append((name, ROOT / 'assets/report-a4.tex', body))
     return cases
 
 

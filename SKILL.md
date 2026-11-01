@@ -3,7 +3,7 @@ name: shiyan-baogao
 description: 处理物理、材料与设计制造类实验，从指导书要求、原始数据或观察、课堂材料和参考样例生成可追溯的完整实验报告、数据处理记录及按需 LaTeX/PDF；也用于交前核验。不自动提交，不补造数据、观察或图片。
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
 # 实验报告
@@ -60,7 +60,7 @@ metadata:
 
 ## 4. 排版与验收
 
-用户模板或课程 profile 优先。无指定模板时，定量物理报告可选 `assets/report-landscape.tex`，普通完整报告可选 `assets/report-a4.tex`；个人栏默认留空。
+用户模板或课程 profile 优先。无指定模板时统一使用 `assets/report-landscape.tex` 这一中性 A4 横向双框模板；完整报告与数据处理报告共享同一版式，差别只在内容范围。个人栏默认留空。
 
 交付前执行四类门禁：
 
