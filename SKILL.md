@@ -24,6 +24,7 @@ metadata:
 | 数学接口、课程算法与适用边界 | [calculation-contract.md](references/calculation-contract.md) |
 | TeX/PDF、模板及视觉验收 | [report-layout.md](references/report-layout.md) |
 | 数据表、科研图形与数值表达 | [scientific-presentation.md](references/scientific-presentation.md) |
+| 完整结果讨论、误差分析、实验结论与思考改进 | [analysis-discussion.md](references/analysis-discussion.md) |
 | 处理记录与交付留痕 | [audit-record.md](references/audit-record.md) |
 
 ## 1. 清点与归档
@@ -68,4 +69,6 @@ metadata:
 
 处理记录链接原始数据、复算驱动与成果，包含数据来源、口径依据、筛选理由、差异、待确认项及实际 QA 结论。聊天概括关键结果并链接记录，不重复粘贴巨型清单。
 
-需要分析讨论时，从本次数据提炼有具体数字的素材，区分观察与原因假设。只有用户要求或本地配置明确包含课堂笔记时，才加载可用的课堂整理技能；不可用则记录缺项，不伪造笔记。
+需要 2–4 条分析素材时，从本次数据提炼关键数字，区分观察、推断与原因假设。用户要求完整的结果讨论、误差分析、实验结论、思考或改进时，读取[结果讨论与分析](references/analysis-discussion.md)：先判定实验类型，再按证据选择 3–5 个模块，不机械套齐。报告正文先写结论与证据；数据替换、参数来源、往届对照和诊断过程紧跟在说明中，不混入正文。
+
+只有用户要求或本地配置明确包含课堂笔记时，才加载可用的课堂整理技能；不可用则记录缺项，不伪造笔记。
