@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile three synthetic layout fixtures; optionally render every page.
+"""Compile synthetic landscape fixtures; optionally render every page.
 
 Requires XeLaTeX; --render additionally requires pdftoppm. Artifacts stay in
 the requested output directory and are never included in a release archive.
@@ -15,7 +15,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def fixture_bodies():
+def landscape_fixture_bodies():
     short = r"""\noindent\textbf{合成示例——实验数据处理}
 \section{测量结果}
 数据仅用于检验版式，不是实际实验记录。
@@ -40,7 +40,7 @@ u_c^2&=\left(\frac{\partial f}{\partial x_1}u_1\right)^2
 """
     sections = []
     for i in range(18):
-        sections.append(r'\section{合成分组 ' + str(i + 1) + '}\n')
+        sections.append(r'\section{合成分组 ' + str(i + 1) + '}' + '\n')
         sections.append(
             (
                 '此段仅作分页测试。原始读数、单位、口径和计算结果应能追溯。'
@@ -49,7 +49,18 @@ u_c^2&=\left(\frac{\partial f}{\partial x_1}u_1\right)^2
             * 3
         )
         sections.append(r'\begin{equation*}y=a+bx,\quad U=ku_c.\end{equation*}' + '\n')
-    return {'short': short, 'wide': wide, 'multipage': ''.join(sections)}
+    return {
+        'landscape-short': short,
+        'landscape-wide': wide,
+        'landscape-multipage': ''.join(sections),
+    }
+
+
+def template_cases():
+    cases = []
+    for name, body in landscape_fixture_bodies().items():
+        cases.append((name, ROOT / 'assets/report-landscape.tex', body))
+    return cases
 
 
 def check(output, render=False):
@@ -59,11 +70,11 @@ def check(output, render=False):
         raise ValueError('Missing xelatex or requested pdftoppm renderer')
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=True)
-    template = (ROOT / 'assets/report-landscape.tex').read_text(encoding='utf-8')
-    if template.count('%%% BEGIN BODY %%%') != 1 or template.count('%%% END BODY %%%') != 1:
-        raise ValueError('Template body markers are missing or duplicated')
     results = []
-    for name, body in fixture_bodies().items():
+    for name, template_path, body in template_cases():
+        template = template_path.read_text(encoding='utf-8')
+        if template.count('%%% BEGIN BODY %%%') != 1 or template.count('%%% END BODY %%%') != 1:
+            raise ValueError(f'{template_path.name}: body markers are missing or duplicated')
         tex = output / (name + '.tex')
         tex.write_text(
             template.replace('%%% BEGIN BODY %%%', '%%% BEGIN BODY %%%\n' + body), encoding='utf-8'
@@ -116,11 +127,12 @@ def check(output, render=False):
             images = sorted(p.name for p in output.glob(name + '-*.png'))
             if not images:
                 raise ValueError(f'{name}: no rendered pages')
-            if name == 'multipage' and len(images) < 2:
-                raise ValueError('Multipage fixture did not exercise a page break')
+            if name.endswith('multipage') and len(images) < 2:
+                raise ValueError(f'{name}: fixture did not exercise a page break')
         results.append(
             {
                 'case': name,
+                'template': template_path.name,
                 'compiled': True,
                 'log_checks_passed': True,
                 'rendered_pages': images,

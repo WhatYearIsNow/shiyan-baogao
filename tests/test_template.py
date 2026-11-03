@@ -34,6 +34,7 @@ class TemplateTests(unittest.TestCase):
             self.assertTrue(Path(directory).resolve().is_relative_to(scratch.resolve()))
             results = QA.check(directory, render=True)
             self.assertEqual(len(results), 3)
+            self.assertEqual({result['template'] for result in results}, {'report-landscape.tex'})
             for result in results:
                 self.assertTrue(result['compiled'])
                 self.assertTrue(result['rendered_pages'])

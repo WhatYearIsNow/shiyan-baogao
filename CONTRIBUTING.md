@@ -14,7 +14,7 @@
 python -B -m unittest discover -s scripts -p test_uncertainty.py
 python -B -m unittest discover -s tests -v
 python -B scripts/check_release.py
-python -B scripts/build_release.py --output build/shiyan-shuju.zip
+python -B scripts/build_release.py --output build/shiyan-baogao.zip
 ```
 
 PDF 生成另需 XeLaTeX 和模板所用宏包；发布检查通过只说明文本、链接和打包边界通过检查，不能代替数值口径核对或 PDF 目视验收。修改报告模板时请编译并检查页面，说明实际验证过的环境。

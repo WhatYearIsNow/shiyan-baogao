@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "shiyan-shuju",
-  "skillName": "shiyan-shuju",
+  "skillName": "shiyan-baogao",
   "baseline": [
     [
       "{python}",
@@ -43,11 +43,11 @@
       "-B",
       "scripts/build_release.py",
       "--output",
-      "{run}/artifacts/shiyan-shuju.zip"
+      "{run}/artifacts/shiyan-baogao.zip"
     ]
   ],
   "artifact": "*.zip",
-  "archivePrefix": "shiyan-shuju/",
+  "archivePrefix": "shiyan-baogao/",
   "health": [
     [
       "{python}",

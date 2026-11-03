@@ -13,7 +13,7 @@ from pathlib import Path
 from check_release import check_release, collect_release_files, validate_entry
 
 
-ARCHIVE_PREFIX = "shiyan-shuju"
+ARCHIVE_PREFIX = "shiyan-baogao"
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 
 
